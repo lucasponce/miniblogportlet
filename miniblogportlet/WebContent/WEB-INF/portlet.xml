@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app
+	xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0">
+
+	<portlet>
+		<description>
+			MinimalBlog: small portlet with blog functionalities
+		</description>
+		<portlet-name>MinimalBlog</portlet-name>
+		<display-name>MinimalBlog</display-name>
+		<portlet-class>portlet.MinimalBlog</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>
+				MinimalBlog: small portlet with blog functionalities
+			</title>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>blog</name>
+				<value>mary</value>
+			</preference>
+			<preference>
+				<name>entries_page</name>
+				<value>3</value>
+			</preference>
+			<preference>
+				<name>users</name>
+				<value>root,mary</value>
+			</preference>			
+		</portlet-preferences>
+	</portlet>
+	<portlet>
+		<description>
+			ManagementBlog: small portlet for blog management
+		</description>	
+		<portlet-name>ManagementBlog</portlet-name>
+		<display-name>ManagementBlog</display-name>
+		<portlet-class>portlet.ManagementBlog</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>ManagementBlog: small portlet for blog management</title>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>users</name>
+				<value>root</value>
+			</preference>
+		</portlet-preferences>		
+	</portlet>
+</portlet-app>

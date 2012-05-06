@@ -1,0 +1,34 @@
+<project name="miniblogportlet" basedir="." default="install">
+
+    	<!-- Properties -->
+    	<property file="build.properties" />	
+
+	<!-- Targets -->
+	<target name="clean">
+
+		<ant antfile="minibloglib/build.xml" inheritAll="false" target="clean" />
+		<ant antfile="miniblogportlet/build.xml" inheritAll="false" target="clean" />
+
+	</target>	
+
+	<target name="build" depends="clean">
+
+		<ant antfile="miniblogportlet/build.xml" inheritAll="false" target="war" />
+
+	</target>
+
+	<target name="install" depends="build">
+		
+		<copy file="minibloglib/minibloglib.jar" todir="${jboss.epp.home}/jboss-as/server/${jboss.epp.instance}/lib" />
+		<copy file="miniblogportlet/miniblogportlet.war" todir="${jboss.epp.home}/jboss-as/server/${jboss.epp.instance}/deploy" />
+	
+	</target>
+
+	<target name="uninstall">
+
+		<delete file="${jboss.epp.home}/jboss-as/server/${jboss.epp.instance}/lib/minibloglib.jar" />
+		<delete file="${jboss.epp.home}/jboss-as/server/${jboss.epp.instance}/deploy/miniblogportlet.war" />
+
+	</target>
+
+</project>
