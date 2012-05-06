@@ -1,0 +1,35 @@
+<project name="minibloglib" basedir="." default="archive">
+	
+	<!-- Folders -->
+	<property name="bin" value="${basedir}/bin" />
+	<property name="src" value="${basedir}/src" />
+		
+	
+	<!-- Targets -->
+	<target name="clean"
+		description="Clean project">
+
+		<delete dir="${bin}" />
+		<delete file="${basedir}/${ant.project.name}.jar" />
+
+	</target>
+
+	<target name="compile" depends="clean"
+		description="Compile minibloglib library">
+	
+		<echo message="Compiling minibloglib library" />
+		<mkdir dir="${bin}" />
+		<javac destdir="${bin}" includeantruntime="off" >
+			<src path="${src}" />
+		</javac>
+
+	</target>
+
+	<target name="archive" depends="compile"
+		description="Create minibloglib.jar">
+
+		<jar jarfile="${basedir}/${ant.project.name}.jar" basedir="${basedir}/bin" />
+
+	</target>
+		
+</project>
